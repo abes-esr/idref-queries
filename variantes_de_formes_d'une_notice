@@ -1,0 +1,3 @@
+SELECT DISTINCT *
+WHERE {{<http://www.idref.fr/031045375/id> skos:prefLabel ?label ; foaf:givenName ?prenom  ;  foaf:familyName ?nom.}
+UNION {<http://www.idref.fr/031045375/id>skos:altLabel ?variantes.}}
