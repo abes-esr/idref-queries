@@ -1,0 +1,2 @@
+SELECT ?idref
+WHERE {?idref owl:sameAs <https://data.archives-ouvertes.fr/author/dacos#foaf:Person>.}
