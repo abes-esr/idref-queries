@@ -1,0 +1,5 @@
+SELECT DISTINCT(?doc) ?citation ?datepub
+{?doc a bibo:Document.
+OPTIONAL {?doc dcterms:bibliographicCitation ?citation ; dc:date ?datepub.}
+FILTER (STRSTARTS(STR(?doc),'http://www.sudoc.fr'))
+} LIMIT 100
