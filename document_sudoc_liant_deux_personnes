@@ -1,0 +1,5 @@
+SELECT DISTINCT *
+{?doc ?relation <http://www.idref.fr/032062591/id> ; ?relation <http://www.idref.fr/095615296/id>.
+OPTIONAL {?doc dcterms:bibliographicCitation ?citation ; dc:date ?datepub ; rdf:type ?type.}
+FILTER (STRSTARTS(STR(?doc),'http://www.sudoc.fr'))
+}
