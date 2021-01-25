@@ -1,0 +1,9 @@
+select * where {
+?dochal ?role ?idref.
+?idref a foaf:Person ; skos:prefLabel ?appellation.
+?halAuthorId owl:sameAs ?idref.
+FILTER(regex(str(?role), "relator"))
+FILTER(regex(str(?dochal),"hal"))
+}
+ORDER BY ?dochal
+LIMIT 100
