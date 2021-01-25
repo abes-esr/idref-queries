@@ -1,0 +1,6 @@
+select * where {
+graph <http://hub.abes.fr/hal/univorleans>
+{?dochal dcterms:bibliographicCitation ?citation.
+?dochal dc:date ?datePub.
+?dochal ?role ?idref.
+?halAuthorId owl:sameAs ?idref.}}
