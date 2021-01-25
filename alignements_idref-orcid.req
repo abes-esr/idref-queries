@@ -1,0 +1,5 @@
+SELECT ?idref ?orcid
+WHERE {?idref owl:sameAs ?orcid.
+?idref a foaf:Person.
+FILTER (STRSTARTS(STR(?orcid),'https://orcid.org'))}
+LIMIT 100
