@@ -1,0 +1,6 @@
+select count(?dochal) where {
+graph <http://hub.abes.fr/hal/univorleans>
+{?dochal ?role ?idref.
+FILTER(regex(str(?role), "relator"))}}
+
+ 
