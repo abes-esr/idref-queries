@@ -2,4 +2,4 @@ SELECT ?idref ?idhal
 WHERE {?idref owl:sameAs ?idhal.
 ?idref a foaf:Person.
 FILTER (STRSTARTS(STR(?idhal),'https://data.archives-ouvertes.fr'))}
-LIMIT10
+LIMIT 10
