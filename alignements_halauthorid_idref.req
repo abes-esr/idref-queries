@@ -3,7 +3,7 @@ select * where {
 ?idref a foaf:Person ; skos:prefLabel ?appellation.
 ?halAuthorId owl:sameAs ?idref.
 FILTER(regex(str(?role), "relator"))
-FILTER(regex(str(?dochal),"hal"))
+FILTER(regex(str(?dochal),"https://hal."))
 }
 ORDER BY ?dochal
 LIMIT 100
