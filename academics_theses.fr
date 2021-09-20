@@ -1,0 +1,22 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX marcrel: <http://id.loc.gov/vocabulary/relators/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+select *
+ where {
+  ?doc rdf:type bibo:Thesis.
+  ?doc dc:date ?date.
+  ?doc dcterms:bibliographicCitation ?citation.
+  ?doc ?rel ?academic.
+  ?academic a foaf:Person.
+  ?academic foaf:name ?nom.
+  ?rel skos:prefLabel ?role.
+  ?academic dbpedia-owl:citizenship ?country.
+  ?academic foaf:gender ?gender.
+FILTER (?date>1984)
+FILTER (lang(?role)="fr")
+}  
+LIMIT 50
