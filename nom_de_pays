@@ -11,6 +11,6 @@ select *
   ?pays gn:officialName ?nomPays.
   ?academic foaf:gender ?gender.
 FILTER (?date>1984)
-filter (lang(?role)="fr" && lang (?nomPays) ="fr")
+FILTER (lang(?role)="fr" && lang (?nomPays) ="fr")
 }
 LIMIT 10
