@@ -1,0 +1,16 @@
+select *
+ where {
+  ?doc rdf:type bibo:Thesis.
+  ?doc dc:date ?date.
+  ?doc dcterms:bibliographicCitation ?citation.
+  ?doc ?rel ?academic.
+  ?academic a foaf:Person.
+  ?academic foaf:name ?nom.
+  ?rel skos:prefLabel ?role.
+  ?academic dbpedia-owl:citizenship ?pays.
+  ?pays gn:officialName ?nomPays.
+  ?academic foaf:gender ?gender.
+FILTER (?date>1984)
+filter (lang(?role)="fr" && lang (?nomPays) ="fr")
+}
+LIMIT 10
