@@ -1,0 +1,10 @@
+#à lancer dans isql (http://tulipe2.v102.abes.fr:8890/conductor) :
+
+log_enable(3,1);
+sparql select count(distinct ?idref) where {
+GRAPH ?g {
+?dochal ?role ?idref.
+FILTER(regex(str(?role), "relator"))
+FILTER(regex(str(?g), "http://data.idref.fr/hal"))
+}
+};
