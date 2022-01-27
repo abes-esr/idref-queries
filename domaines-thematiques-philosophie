@@ -1,0 +1,9 @@
+SELECT DISTINCT ?uri1 ?label1 ?uri2 ?label2   COUNT (distinct ?doc2) as ?nbdoc2 
+WHERE { 
+<http://www.idref.fr/027295206/id> skos:narrower ?uri1. 
+  ?uri1 skos:prefLabel ?label1. 
+OPTIONAL { 
+	?uri1 skos:narrower ?uri2. 
+	?uri2 skos:prefLabel ?label2. 
+   ?doc2 dcterms:subject ?uri2. 
+  } }  ORDER BY ?label1
