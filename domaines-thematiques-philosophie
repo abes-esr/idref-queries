@@ -1,3 +1,5 @@
+##Cédric Eyssette @Cedric_Eyssette Professeur de philosophie & Enseignant en Section Euro Anglais.
+
 SELECT DISTINCT ?uri1 ?label1 ?uri2 ?label2   COUNT (distinct ?doc2) as ?nbdoc2 
 WHERE { 
 <http://www.idref.fr/027295206/id> skos:narrower ?uri1. 
