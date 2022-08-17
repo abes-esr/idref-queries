@@ -1,12 +1,10 @@
-
-
 select *
 where 
 {
 <http://www.idref.fr/057490724/id> a foaf:Person.
 
-
 OPTIONAL {<http://www.idref.fr/057490724/id> bnf-onto:FRBNF ?frbnf.}
+
 OPTIONAL {<http://www.idref.fr/057490724/id>isni:identifierValid ?isni.}
 
 OPTIONAL {<http://www.idref.fr/057490724/id>owl:sameAs ?ark.
@@ -14,5 +12,4 @@ FILTER(regex(str(?ark), "data.bnf"))}
 
 OPTIONAL {<http://www.idref.fr/057490724/id>owl:sameAs ?viaf.
 FILTER(regex(str(?viaf), "viaf.org")) }
-
 }
