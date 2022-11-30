@@ -1,3 +1,11 @@
+Si doute sur cette liste, requête dans isql (attention, c'est long) :
+log_enable(3,1);
+sparql select ?g where {
+GRAPH ?g {
+FILTER(regex(str(?g), "http://data.idref.fr/hal"))
+}
+};
+
 Liste des graphes "HAL" :
 
 - http://data.idref.fr/hal/uphf
