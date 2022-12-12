@@ -1,0 +1,21 @@
+select * where {
+graph <http://data.idref.fr/openedition/journals>
+{
+?doc dcterms:bibliographicCitation ?citation.
+?doc dc:date ?datePub.
+?doc bibo:doi ?doi.
+?doc ?role ?idref.
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+
+select count(*) where {
+graph <http://data.idref.fr/openedition/journals>
+{
+?doc dcterms:bibliographicCitation ?citation.
+?doc dc:date ?datePub.
+?doc bibo:doi ?doi.
+?doc ?role ?idref.
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
