@@ -17,3 +17,11 @@ GROUP BY ?property ORDER BY DESC(?eff)
 select * where {<http://www.calames.abes.fr/pub/#details?id=Calames-202222142568021> ?p ?o.}
 
 
+-- Template de base de triplets pour chaque ressource
+select * where {
+URI-Calames dcterms:created "date".
+URI-Calames dcterms:bibliographicCitation "citation".
+URI-Calames dcterms:subject et/ou marcrel:xxx URI-IdRef.
+}
+
+
