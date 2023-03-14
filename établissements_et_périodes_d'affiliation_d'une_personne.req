@@ -1,8 +1,8 @@
 SELECT
+?labelEtab
 (COUNT(DISTINCT ?these) AS ?number_of_theses)
 (GROUP_CONCAT(DISTINCT ?date ; separator=' - ') AS ?list_of_dates)
 (GROUP_CONCAT(DISTINCT ?etab ; separator=' - ') AS ?list_of_etabs)
-?labelEtab
 WHERE {
 ?these a bibo:Thesis.
 ?these <http://www.abes.fr/vocabularies/theses/roles/727> <http://www.idref.fr/031999182/id>.
