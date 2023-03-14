@@ -6,7 +6,6 @@ SELECT
 WHERE {
 ?these a bibo:Thesis.
 ?these <http://www.abes.fr/vocabularies/theses/roles/727> <http://www.idref.fr/031999182/id>.
-<http://www.idref.fr/031999182/id> a foaf:Person.
 ?these marcrel:dgg ?etab.
 ?etab a foaf:Organization.
 ?etab skos:prefLabel ?labelEtab.
