@@ -5,7 +5,7 @@ SELECT
 (GROUP_CONCAT(DISTINCT ?etab ; separator=' - ') AS ?list_of_etabs)
 WHERE {
 ?these a bibo:Thesis.
-?these <http://www.abes.fr/vocabularies/theses/roles/727> <http://www.idref.fr/031999182/id>.
+?these marcrel:ths <http://www.idref.fr/031999182/id>.
 ?these marcrel:dgg ?etab.
 ?etab a foaf:Organization.
 ?etab skos:prefLabel ?labelEtab.
