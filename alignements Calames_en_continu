@@ -5,6 +5,24 @@ select * from <http://data.idref.fr/calames> where {?s ?p ?o.} LIMIT 100
 -- Pour compter le nombre de triplets dans le graphe Calames
 select count(*) from <http://data.idref.fr/calames> where {?s ?p ?o.}
 
+-- Pour compter le nombre de documents Calames distincts
+select count(distinct(?cal)) from <http://data.idref.fr/calames>
+where {
+?cal dcterms:created ?date.
+?cal dcterms:bibliographicCitation ?citation.
+?cal ?p ?idref.
+FILTER(regex(?idref,'http://www.idref.fr'))
+}
+
+-- POur compter le nombre d'alignements à un idref
+select count(?p) from <http://data.idref.fr/calames>
+where {
+?cal dcterms:created ?date.
+?cal dcterms:bibliographicCitation ?citation.
+?cal ?p ?idref.
+FILTER(regex(?idref,'http://www.idref.fr'))
+}
+
 
 -- Pour avoir la Liste des propriétés avec leurs effectifs dans le graphe Calames
 select ?property (COUNT(*) AS ?eff) 
