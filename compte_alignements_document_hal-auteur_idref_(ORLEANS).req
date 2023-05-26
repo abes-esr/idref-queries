@@ -1,5 +1,5 @@
 select count(?dochal) where {
-graph <http://data.idref.fr/hal/univorleans>
+graph <http://data.idref.fr/hal/orleans>
 {?dochal ?role ?idref.
 FILTER(regex(str(?role), "relator"))}}
 
