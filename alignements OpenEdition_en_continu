@@ -1,3 +1,17 @@
+il existe plusieurs graphes pour OpenEdition.
+
+Les chapitres de livres sont dans le graphe :
+<http://data.idref.fr/openedition/chapters/scanr> car la source est Scanr au 01/12/2023
+
+Les articles de la plateforme Journals sont dans les graphes :
+<http://data.idref.fr/openedition/journals>
+<http://data.idref.fr/openedition/journals/retro>
+<http://data.idref.fr/openedition/journals/scanr>
+
+Ils ont vocation à fusionner.
+
+
+
 select * where {
 graph <http://data.idref.fr/openedition/journals>
 {?doc dcterms:bibliographicCitation ?citation.
@@ -17,3 +31,26 @@ OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
+
+-- VARIANTES --
+select * where {
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+FILTER(regex(str(?doc), "openedition"))
+}}
+
+
+
+select count(*) where {
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+FILTER(regex(str(?doc), "openedition"))
+}}
+
+
