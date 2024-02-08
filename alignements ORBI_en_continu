@@ -1,0 +1,11 @@
+SELECT count(*) 
+FROM <http://hub.abes.fr/orbi/last>
+WHERE {?s ?p ?o.}
+
+
+
+SELECT *
+FROM <http://hub.abes.fr/orbi/last>
+WHERE {?s ?p ?o.}
+LIMIT 1000
+
