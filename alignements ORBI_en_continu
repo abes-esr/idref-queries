@@ -1,11 +1,19 @@
-SELECT count(*) 
-FROM <http://hub.abes.fr/orbi/last>
-WHERE {?s ?p ?o.}
+select * where {
+graph <http://data.idref.fr/orbi>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
 
 
 
-SELECT *
-FROM <http://hub.abes.fr/orbi/last>
-WHERE {?s ?p ?o.}
-LIMIT 1000
-
+select count(*) where {
+graph <http://data.idref.fr/orbi>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
