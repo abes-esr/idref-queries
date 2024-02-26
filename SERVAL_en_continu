@@ -1,0 +1,19 @@
+select * where {
+graph <http://data.idref.fr/serval>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+
+select count(*) where {
+graph <http://data.idref.fr/serval>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
