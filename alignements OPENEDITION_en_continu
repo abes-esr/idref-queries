@@ -34,23 +34,23 @@ FILTER(regex(str(?idref), "http://www.idref.fr"))
 
 -- VARIANTES --
 select * where {
-{?doc dcterms:bibliographicCitation ?citation.
+?doc dcterms:bibliographicCitation ?citation.
 ?doc ?role ?idref.
 OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 FILTER(regex(str(?doc), "openedition"))
-}}
+}
 
 
 
 select count(*) where {
-{?doc dcterms:bibliographicCitation ?citation.
+?doc dcterms:bibliographicCitation ?citation.
 ?doc ?role ?idref.
 OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 FILTER(regex(str(?doc), "openedition"))
-}}
+}
 
 
