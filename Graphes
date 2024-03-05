@@ -1,11 +1,12 @@
-SELECT ?g (COUNT(*) AS ?eff) 
+log_enable(3,1)
+sparql  SELECT ?g (COUNT(*) AS ?eff) 
 WHERE {
   GRAPH ?g { ?s ?p ?o }
-  FILTER(regex(?g, "sudoc"))
-  FILTER(regex(?g, "idref"))
+  FILTER NOT EXISTS {regex(?g, "sudoc") || regex(?g, "idref")
+  }
 }
 GROUP BY ?g
-ORDER BY DESC(?eff)
+ORDER BY DESC(?eff);
 
 
 liste des graphes et nombre de triplets au 05/03/2024 :
