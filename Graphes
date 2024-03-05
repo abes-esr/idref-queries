@@ -1,9 +1,8 @@
 log_enable(3,1)
-sparql  SELECT ?g (COUNT(*) AS ?eff) 
+sparql SELECT ?g (COUNT(*) AS ?eff) 
 WHERE {
   GRAPH ?g { ?s ?p ?o }
-  FILTER NOT EXISTS {regex(?g, "sudoc") || regex(?g, "idref")
-  }
+  FILTER (!regex(?g, "sudoc") && !regex(?g, "idref"))
 }
 GROUP BY ?g
 ORDER BY DESC(?eff);
