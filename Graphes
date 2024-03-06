@@ -5,6 +5,8 @@ WHERE {
   FILTER(!regex(?g, "sudoc"))
   FILTER(!regex(?g, "idref"))
 }
+GROUP BY ?g
+ORDER BY DESC(?eff)
 ;
 
 
