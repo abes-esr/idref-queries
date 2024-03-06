@@ -1,3 +1,4 @@
+-- tentative de requête
 log enable (3,1) ;
 SPARQL SELECT ?g (COUNT(*) AS ?eff) 
 WHERE {
@@ -8,6 +9,19 @@ WHERE {
 GROUP BY ?g
 ORDER BY DESC(?eff)
 ;
+
+
+
+-- Requête utilisée initialement
+log enable (3,1) ;
+SPARQL SELECT ?g (COUNT(*) AS ?eff) 
+WHERE {
+  GRAPH ?g { ?s ?p ?o }
+  FILTER(regex(?g, "sudoc"))
+  FILTER(regex(?g, "idref"))
+}
+GROUP BY ?g
+ORDER BY DESC(?eff) ;
 
 
 liste des graphes et nombre de triplets au 05/03/2024 :
