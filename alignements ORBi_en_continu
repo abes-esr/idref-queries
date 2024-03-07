@@ -17,3 +17,16 @@ OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
+
+-- les orcid alignés à IdRef pour les dépôts ORBi
+log enable (3,1);
+SPARQL SELECT ?idref ?orcid ?doc
+FROM <http://data.idref.fr/orcid_idref>
+FROM <http://data.idref.fr/orbi>
+WHERE {
+  ?doc dcterms:bibliographicCitation ?citation.
+  FILTER(STRSTARTS(STR(?doc), "https://orbi.uliege.be"))
+  ?doc ?role ?idref.
+  FILTER(STRSTARTS(STR(?role), "http://id.loc.gov/vocabulary/relators"))
+  ?orcid owl:sameAs ?idref.
+  FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr") && STRSTARTS(STR(?orcid), "https://orcid.org"))};
