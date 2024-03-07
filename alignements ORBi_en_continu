@@ -44,3 +44,29 @@ WHERE {
     }
   }
 }
+
+-- les alignements orcid-idref uniques 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT  DISTINCT(?idref) ?orcid ?appellation_idref
+WHERE {
+  { 
+    SELECT ?doc ?idref ?appellation_idref
+    WHERE {
+      ?doc dcterms:bibliographicCitation ?citation.
+      FILTER(STRSTARTS(STR(?doc), "https://orbi.uliege.be"))
+      ?doc ?role ?idref.
+      ?idref foaf:name ?appellation_idref.
+      FILTER(STRSTARTS(STR(?role), "http://id.loc.gov/vocabulary/relators"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
+  {
+    SELECT ?orcid ?idref
+    FROM <http://data.idref.fr/orcid_idref>
+    WHERE {
+      ?orcid owl:sameAs ?idref.
+      FILTER(STRSTARTS(STR(?orcid), "https://orcid.org"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
