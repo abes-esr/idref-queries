@@ -1,0 +1,54 @@
+ERUDIT 
+Pour aller d'un idref de Personne aux métadonnées d'un document Erudit, en 4 étapes :
+1.	soit l'idref 168137380
+2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F168137380%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Furi%2C+%27erudit%27+%29%29%0D%0A%0D%0A%7D%0D%0AORDER+by+%3FdatePub&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+
+3.	qui donne en résultat des URI, exemple http://id.erudit.org/iderudit/1076459ar#id
+4.	on passe chaque URI à l'entrepôt OAI-PMH Erudit : http://oai.erudit.org/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:erudit.org:1076459ar  (autres formats de métadonnées possibles : nlm et oai_openaire) 
+
+OPENEDITION
+Pour aller d'un idref de Personne aux métadonnées d'un document OpenEdition, en 4 étapes :
+1.	idref.fr : soit l'idref 031999182 
+2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Furi%2C+%27openedition%27+%29%29%0D%0A%0D%0A%7D%0D%0AORDER+by+%3FdatePub&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+ 
+3.	qui donne en résultat des URI, exemple http://journals.openedition.org/conflits/756#id 
+4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : http://oai.openedition.org/?verb=GetRecord&identifier=oai:revues.org:conflits/756&metadataPrefix=qdc (le qdc est du dc (dublin core) qualifié donc un peu plus riche)
+
+CAIRN : 
+Pour Cairn, tant que Science+ n'est pas synchronisé à la base Cairn, le chemin le plus performant en termes de couverture passe par le flux RSS mais dépend d’un développement côté Cairn qui devrait ne pas tarder
+
+1.	le point de départ est un idref 027182258
+2.	on interroge le flux rss https://www.cairn.info/rss/auteur/027182258?key=idref
+3.	qui donne en résultat un ou des items :
+<item>
+            <title>Les bons ressentiments. Essai sur le malaise post-colonial</title>
+balise à ajouter =>    <identifier>AFCO_256_0005</identifier>
+            <link>https://www.cairn.info/revue-afrique-contemporaine-2023-2-page-283.htm</link>
+            <description>Véron Jean-Bernard, « Les bons ressentiments. Essai sur le malaise post-colonial. Éditions Riveneuve, coll. « Pépites », mars 2023. », Afrique contemporaine, 2023/2 (N° 276), p. 283-284.</description>
+            </item>
+
+4.	on  passe chaque IDENTIFIER à l'entrepôt OAI-PMH Cairn : https://oai.cairn.info/oai.php?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:cairn.info:AFCO_256_0005 pour obtenir les métadonnées de chaque document.
+
+
+SCIENCEPLUS
+
+HAL 
+
+PERSEE
+
+ORBI 
+
+AO-UNIGE
+
+SERVAL
+
+LIBRA
+
+
+
+
+
+
+
+
+
+
+
