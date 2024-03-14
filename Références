@@ -43,7 +43,12 @@ HAL
 
 PERSEE
 
-ORBI 
+ORBI :
+Pour aller d'un idref de Personne aux métadonnées d'un document ORBi, en 4 étapes :
+1.	idref.fr : soit l'idref 275554910 
+2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F275554910%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Furi%2C+%27orbi%27+%29%29%0D%0A%0D%0A%7D%0D%0AORDER+by+%3FdatePub&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+ 
+3.	qui donne en résultat des URI, exemple https://orbi.uliege.be/handle/2268/194208#id 
+4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : https://orbi.uliege.be/oai/request?verb=GetRecord&metadataPrefix=qdc&identifier=oai:orbi.ulg.ac.be:2268/194208
 
 AO-UNIGE
 
