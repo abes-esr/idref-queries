@@ -70,3 +70,4 @@ WHERE {
       FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
     }
   }
+}
