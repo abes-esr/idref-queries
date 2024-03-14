@@ -39,7 +39,7 @@ WHERE {
     FROM <http://data.idref.fr/orcid_idref>
     WHERE {
       ?orcid owl:sameAs ?idref.
-      FILTER(STRSTARTS(STR(?orcid), "https://orcid.org"))
+      FILTER(STRSTARTS(STR(?orcid), "http://orcid.org"))
       FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
     }
   }
@@ -66,7 +66,7 @@ WHERE {
     FROM <http://data.idref.fr/orcid_idref>
     WHERE {
       ?orcid owl:sameAs ?idref.
-      FILTER(STRSTARTS(STR(?orcid), "https://orcid.org"))
+      FILTER(STRSTARTS(STR(?orcid), "http://orcid.org"))
       FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
     }
   }
