@@ -1,3 +1,12 @@
+Pour maximiser la récupération de références bibliographiques à partir d'un IdRef, il convient de recourir à plusieurs services.
+Les deux premiers services sont "Abes" : 
+1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences
+2) data.idref : https://data.idref.fr/sparql
+Ils délivrent des identifiants de documents émanant de différents gisements documentaires
+qu'il s'agit alors d'interroger un à un, avec les identifiants des documents afin de récupérer la finesse de signalement souhaitée.
+Les deux services Abes ne sont que des aiguillages.
+Ce-dessous, voici les manières d'interroger les différents corpus.
+
 ERUDIT 
 Pour aller d'un idref de Personne aux métadonnées d'un document Erudit, en 4 étapes :
 1.	soit l'idref 168137380
@@ -28,7 +37,7 @@ balise à ajouter =>    <identifier>AFCO_256_0005</identifier>
 4.	on  passe chaque IDENTIFIER à l'entrepôt OAI-PMH Cairn : https://oai.cairn.info/oai.php?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:cairn.info:AFCO_256_0005 pour obtenir les métadonnées de chaque document.
 
 
-SCIENCEPLUS
+SCIENCEPLUS > CAIRN :
 
 HAL 
 
