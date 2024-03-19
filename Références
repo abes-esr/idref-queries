@@ -1,6 +1,6 @@
 Pour maximiser la récupération de références bibliographiques à partir d'un IdRef, il convient de recourir à plusieurs services.
 Les deux premiers services sont "Abes" : 
-1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences
+1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences ; l'API references délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
 2) data.idref : https://data.idref.fr/sparql
 Ils délivrent des identifiants de documents émanant de différents gisements documentaires
 qu'il s'agit alors d'interroger un à un, avec les identifiants des documents afin de récupérer la finesse de signalement souhaitée.
@@ -39,19 +39,28 @@ balise à ajouter =>    <identifier>AFCO_256_0005</identifier>
 4.	on  passe chaque IDENTIFIER à l'entrepôt OAI-PMH Cairn : https://oai.cairn.info/oai.php?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:cairn.info:AFCO_256_0005 pour obtenir les métadonnées de chaque document.
 
 SCIENCEPLUS > CAIRN :
+Pour aller d'un idref de Personne aux métadonnées d'un document Cairn, en 4 étapes :
+1.	idref.fr : soit l'idref 275554910 
+2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Ftitle%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+%3Frelator+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Furi+dcterms%3Atitle+%3Ftitle.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Frelator%2C%27relator%27%29%29%0D%0AFILTER+%28regex%28%3Furi%2C%27cairn%27%29%29%7D%0D%0AORDER+by+%3FdatePub&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+
+3.	qui donne en résultat des URI, exemple http://hub.abes.fr/cairn/periodical/pox/1988/issue_pox003/D33D27D9B21A4834E053120B220A5E67/w 
+4.	on passe chaque URI au end point de Scienceplus : SELECT * WHERE {<http://hub.abes.fr/cairn/periodical/pox/1988/issue_pox003/D33D27D9B21A4834E053120B220A5E67/w> ?p ?o.}
+
 
 SUDOC : l'API references, l'API rest en .rdf et data.idref sont trois voies valables.
-
 Pour aller d'un idref de Personne aux métadonnées d'un document Sudoc, en 4 étapes :
 1. idref.fr : soit l'idref 031999182
 2. on requête data.idref : https://www.idref.fr/Proxy?https://data.idref.fr/sparql?default-graph-uri=&query=select+distinct%28%3Fdoc%29%2C+%3Fcitation%0D%0Awhere%0D%0A%7B%3Fdoc+%3Frel+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Fdoc+a+%3Ftype+%3B+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AFILTER%28regex%28%3Fdoc%2C%27http%3A%2F%2Fwww.sudoc%27%29%29%0D%0AOPTIONAL+%7B%3Fdoc+dc%3Adate+%3FdatePub%7D.%0D%0A%0D%0A%7D%0D%0AORDER+by+desc%28%3FdatePub%29+&format=application%2Frdf%2Bxml&timeout=0&debug=on&run=+Run+Query+
-2'. on construit l'url : https://www.idref.fr.031999182.rdf
-
+2'. on construit l'url : https://www.idref.fr.031999182.rdf dont on filtre les résultats contenant "www.sudoc.fr"
+2''. on construit l'url : https://www.idref.fr/services/references/02686018X dont on filtre les résultats contenant "www.sudoc.fr"
 3. chaque variante donne en résultat des URI, exemple http://www.sudoc.fr/275619230/id
 4. on passe chaque URL au web service : https://www.sudoc.fr/275619230.xml
 
-
 HAL 
+En l'absence d'idhal dans la notice IdRef ou d'identifiant IdRef dans un eventuel compte idhal dans AuréHAL, o va aller d'un idref de Personne aux métadonnées d'un document HAL, en 4 étapes :
+1. idref.fr : soit l'idref 086920030
+2. on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=%0D%0Aselect+DISTINCT+%3Furihal%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+{%0D%0A%3Furihal+marcrel%3Aaut+<http%3A%2F%2Fwww.idref.fr%2F086920030%2Fid>.%0D%0A%3Furihal+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0A%3Furihal+dc%3Adate+%3FdatePub.%0D%0AFILTER+(STRSTARTS(STR(%3Furihal)%2C+'https%3A%2F%2Fhal'+))}%0D%0AORDER+by+%3FdatePub&format=application%2Frdf%2Bxml&timeout=0&debug=on&run=+Run+Query+
+3. qui donne en résultat des URI, exemple : https://hal.archives-ouvertes.fr/hal-00107938#id
+4. on passe chaque URI à la sortie XML-TEI de HAL, https://hal.science/hal-00107938/tei
 
 PERSEE
 Variante par web service : 
