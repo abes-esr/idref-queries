@@ -22,7 +22,9 @@ Pour aller d'un idref de Personne aux métadonnées d'un document OpenEdition, e
 4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : http://oai.openedition.org/?verb=GetRecord&identifier=oai:revues.org:conflits/756&metadataPrefix=qdc (le qdc est du dc (dublin core) qualifié donc un peu plus riche)
 
 CAIRN : 
-Pour Cairn, tant que Science+ n'est pas synchronisé à la base Cairn, le chemin le plus performant en termes de couverture passe par le flux RSS mais dépend d’un développement côté Cairn qui devrait ne pas tarder
+Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas actif.
+Via le flux RSS, le chemin est tronqué en raison de l'absence (momentanée) de l'identifier de chaque document.
+Un développement côté Cairn ne pas devrait pas tarder.
 
 1.	le point de départ est un idref 027182258
 2.	on interroge le flux rss https://www.cairn.info/rss/auteur/027182258?key=idref
