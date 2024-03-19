@@ -30,7 +30,7 @@ Un développement côté Cairn ne pas devrait pas tarder.
 1.	le point de départ est un idref 027182258
 2.	on interroge le flux rss https://www.cairn.info/rss/auteur/027182258?key=idref
 3.	qui donne en résultat un ou des items :
-<item>
+            <item>
             <title>Les bons ressentiments. Essai sur le malaise post-colonial</title>
 balise à ajouter =>    <identifier>AFCO_256_0005</identifier>
             <link>https://www.cairn.info/revue-afrique-contemporaine-2023-2-page-283.htm</link>
@@ -44,7 +44,6 @@ Pour aller d'un idref de Personne aux métadonnées d'un document Cairn, en 4 é
 2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Ftitle%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+%3Frelator+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Furi+dcterms%3Atitle+%3Ftitle.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Frelator%2C%27relator%27%29%29%0D%0AFILTER+%28regex%28%3Furi%2C%27cairn%27%29%29%7D%0D%0AORDER+by+%3FdatePub&format=text%2Fhtml&timeout=0&debug=on&run=+Run+Query+
 3.	qui donne en résultat des URI, exemple http://hub.abes.fr/cairn/periodical/pox/1988/issue_pox003/D33D27D9B21A4834E053120B220A5E67/w 
 4.	on passe chaque URI au end point de Scienceplus : SELECT * WHERE {<http://hub.abes.fr/cairn/periodical/pox/1988/issue_pox003/D33D27D9B21A4834E053120B220A5E67/w> ?p ?o.}
-
 
 SUDOC : l'API references, l'API rest en .rdf et data.idref sont trois voies valables.
 Pour aller d'un idref de Personne aux métadonnées d'un document Sudoc, en 4 étapes :
