@@ -40,6 +40,17 @@ balise à ajouter =>    <identifier>AFCO_256_0005</identifier>
 
 SCIENCEPLUS > CAIRN :
 
+SUDOC : l'API references, l'API rest en .rdf et data.idref sont trois voies valables.
+
+Pour aller d'un idref de Personne aux métadonnées d'un document Sudoc, en 4 étapes :
+1. idref.fr : soit l'idref 031999182
+2. on requête data.idref : https://www.idref.fr/Proxy?https://data.idref.fr/sparql?default-graph-uri=&query=select+distinct%28%3Fdoc%29%2C+%3Fcitation%0D%0Awhere%0D%0A%7B%3Fdoc+%3Frel+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Fdoc+a+%3Ftype+%3B+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AFILTER%28regex%28%3Fdoc%2C%27http%3A%2F%2Fwww.sudoc%27%29%29%0D%0AOPTIONAL+%7B%3Fdoc+dc%3Adate+%3FdatePub%7D.%0D%0A%0D%0A%7D%0D%0AORDER+by+desc%28%3FdatePub%29+&format=application%2Frdf%2Bxml&timeout=0&debug=on&run=+Run+Query+
+2'. on construit l'url : https://www.idref.fr.031999182.rdf
+
+3. chaque variante donne en résultat des URI, exemple http://www.sudoc.fr/275619230/id
+4. on passe chaque URL au web service : https://www.sudoc.fr/275619230.xml
+
+
 HAL 
 
 PERSEE
@@ -49,13 +60,12 @@ Variante par web service :
 3. suivre l'url "shortref" : http://ws.persee.fr/authority/persee/259172/shortref qui donne les URL des références Persée, ex : https://www.persee.fr/doc/outre_0300-9513_1996_num_83_310_3423_t1_0152_0000_2
 4. on passe chaque URL à l'entrepôt OAI-PMH de Persée : https://oai.persee.fr/oai?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:persee:article/outre_0300-9513_1996_num_83_310_3423_t1_0152_0000_2
 
-Variante "Web sémantique" avec couverture moindre car data.persee n'est pas synchronisé au portail Persée.
+Variante "web sémantique" avec couverture moindre car data.persee n'est pas synchronisé au portail Persée.
 Pour aller d'un idref de Personne aux métadonnées d'un document Persee, en 4 étapes :
 1.	idref.fr : soit l'idref 031999182 
 2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+{%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+{%3Furi+dc%3Adate+%3FdatePub.}%0D%0AFILTER+(regex(%3Furi%2C+%27persee%27+))%0D%0A%0D%0A}%0D%0AORDER+by+%3FdatePub&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+
 3.	qui donne en résultat des URI, exemple http://data.persee.fr/doc/rfsp_0035-2950_1988_num_38_4_411152#Web
 4.	on passe chaque URI à un navigateur web ou requêter le end point data.persee/sparql :  SELECT * WHERE {<http://data.persee.fr/doc/rfsp_0035-2950_1988_num_38_4_411152#Web> ?p ?o.}
-
 
 ORBI :
 Pour aller d'un idref de Personne aux métadonnées d'un document ORBi, en 4 étapes :
