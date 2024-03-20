@@ -1,6 +1,9 @@
 Pour maximiser la récupération de références bibliographiques à partir d'un IdRef, il convient de recourir à plusieurs services.
-Les deux premiers services sont "Abes" : https://www.idref.fr/services/references/PPN
-1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences ; l'API references délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
+
+Les deux services sont "Abes" : 
+1) API "references" d'IdRef : https://www.idref.fr/services/references/PPN
+            https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences
+            l'API "references" délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
 2) data.idref : https://data.idref.fr/sparql
 
 Ces services délivrent des alignements URI d'IdRef / URI de documents,documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, afin de récupérer la finesse de signalement souhaitée.
