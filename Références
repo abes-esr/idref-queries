@@ -3,7 +3,7 @@ Les deux premiers services sont "Abes" : https://www.idref.fr/services/reference
 1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences ; l'API references délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
 2) data.idref : https://data.idref.fr/sparql
 
-Ces services délivrent des identifiants de documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, avec les identifiants des documents afin de récupérer la finesse de signalement souhaitée.
+Ces services délivrent des alignements URI d'IdRef / URI de documents,documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, afin de récupérer la finesse de signalement souhaitée.
 Les deux services Abes ne sont que des aiguillages. Ce-dessous, voici les manières d'interroger les différents corpus.
 
 
