@@ -1,11 +1,10 @@
 Pour maximiser la récupération de références bibliographiques à partir d'un IdRef, il convient de recourir à plusieurs services.
-Les deux premiers services sont "Abes" : 
+Les deux premiers services sont "Abes" : https://www.idref.fr/services/references/PPN
 1) API "references" d'IdRef : https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences ; l'API references délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
 2) data.idref : https://data.idref.fr/sparql
-Ils délivrent des identifiants de documents émanant de différents gisements documentaires
-qu'il s'agit alors d'interroger un à un, avec les identifiants des documents afin de récupérer la finesse de signalement souhaitée.
-Les deux services Abes ne sont que des aiguillages.
-Ce-dessous, voici les manières d'interroger les différents corpus.
+
+Ces services délivrent des identifiants de documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, avec les identifiants des documents afin de récupérer la finesse de signalement souhaitée.
+Les deux services Abes ne sont que des aiguillages. Ce-dessous, voici les manières d'interroger les différents corpus.
 
 
 ERUDIT 
