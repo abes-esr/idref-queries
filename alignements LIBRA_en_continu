@@ -1,5 +1,5 @@
 select * where {
-graph <http://data.idref.fr/serval>
+graph <http://data.idref.fr/libra>
 {?doc dcterms:bibliographicCitation ?citation.
 ?doc ?role ?idref.
 OPTIONAL{?doc dc:date ?datePub.}
@@ -10,7 +10,7 @@ FILTER(regex(str(?idref), "http://www.idref.fr"))
 
 
 select count(*) where {
-graph <http://data.idref.fr/serval>
+graph <http://data.idref.fr/libra>
 {?doc dcterms:bibliographicCitation ?citation.
 ?doc ?role ?idref.
 OPTIONAL{?doc dc:date ?datePub.}
