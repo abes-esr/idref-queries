@@ -48,15 +48,15 @@ WHERE {
 -- les alignements orcid-idref uniques 
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT  DISTINCT(?idref) ?orcid ?appellation_idref
+SELECT  DISTINCT(?idref), ?orcid 
 WHERE {
   { 
-    SELECT ?doc ?idref ?appellation_idref
+    SELECT ?doc ?idref 
+    FROM <http://data.idref.fr/orbi>
     WHERE {
       ?doc dcterms:bibliographicCitation ?citation.
       FILTER(STRSTARTS(STR(?doc), "https://orbi.uliege.be"))
       ?doc ?role ?idref.
-      ?idref foaf:name ?appellation_idref.
       FILTER(STRSTARTS(STR(?role), "http://id.loc.gov/vocabulary/relators"))
       FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
     }
