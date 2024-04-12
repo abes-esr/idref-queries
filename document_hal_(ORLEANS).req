@@ -3,4 +3,4 @@ graph <http://data.idref.fr/hal/orleans>
 {?dochal dcterms:bibliographicCitation ?citation.
 ?dochal dc:date ?datePub.
 ?dochal ?role ?idref.
-?halAuthorId owl:sameAs ?idref.}}
+OPTIONAL{?halAuthorId owl:sameAs ?idref.}}}
