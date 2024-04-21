@@ -7,8 +7,6 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
-
-
 select count(*) where {
 graph <http://data.idref.fr/folia>
 {?doc dcterms:bibliographicCitation ?citation.
@@ -18,9 +16,7 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
-
--- nombre de documents distincts
-select 
+-- nombre de documents distincts ou d'alignements (interververtir le #)select 
 COUNT(DISTINCT(?doc))
 #COUNT(DISTINCT(?idref))
 where {
@@ -31,7 +27,6 @@ OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
-
 
 -- nombre de personnes distinctes
 select 
