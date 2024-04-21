@@ -16,7 +16,7 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
--- nombre de documents distincts
+-- nombre de documents distincts ou d'alignements (interververtir le #)
 select 
 COUNT(DISTINCT(?doc))
 #COUNT(DISTINCT(?idref))
