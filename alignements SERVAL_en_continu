@@ -7,8 +7,6 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
-
-
 select count(*) where {
 graph <http://data.idref.fr/serval>
 {?doc dcterms:bibliographicCitation ?citation.
@@ -22,7 +20,6 @@ FILTER(regex(str(?idref), "http://www.idref.fr"))
 -- nombre de documents distincts
 select 
 COUNT(DISTINCT(?doc))
-#COUNT(DISTINCT(?idref))
 where {
 graph <http://data.idref.fr/serval>
 {?doc dcterms:bibliographicCitation ?citation.
