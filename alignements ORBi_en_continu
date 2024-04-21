@@ -7,8 +7,6 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
-
-
 select count(*) where {
 graph <http://data.idref.fr/orbi>
 {?doc dcterms:bibliographicCitation ?citation.
@@ -17,6 +15,33 @@ OPTIONAL{?doc dc:date ?datePub.}
 OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
+
+-- nombre de documents distincts ou d'alignements (interververtir le #)
+select 
+COUNT(DISTINCT(?doc))
+#COUNT(DISTINCT(?idref))
+where {
+graph <http://data.idref.fr/orbi>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+-- nombre de personnes distinctes
+select 
+COUNT(DISTINCT(?idref))
+where {
+graph <http://data.idref.fr/orbi>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
 
 -- les orcid alignés à IdRef pour les dépôts ORBi
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
