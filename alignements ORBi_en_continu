@@ -16,10 +16,9 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
--- nombre de documents distincts ou d'alignements (interververtir le #)
+-- nombre de documents distincts
 select 
 COUNT(DISTINCT(?doc))
-#COUNT(DISTINCT(?idref))
 where {
 graph <http://data.idref.fr/orbi>
 {?doc dcterms:bibliographicCitation ?citation.
