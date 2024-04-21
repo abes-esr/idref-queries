@@ -16,9 +16,8 @@ OPTIONAL{?doc bibo:doi ?doi.}
 FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
--- nombre de documents distincts ou d'alignements (interververtir le #)select 
+-- nombre de documents distincts
 COUNT(DISTINCT(?doc))
-#COUNT(DISTINCT(?idref))
 where {
 graph <http://data.idref.fr/folia>
 {?doc dcterms:bibliographicCitation ?citation.
