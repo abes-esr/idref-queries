@@ -1,13 +1,20 @@
-Pour maximiser la récupération de références bibliographiques à partir d'un IdRef, il convient de recourir à plusieurs services.
+Pour maximiser la récupération de références bibliographiques à partir d'un identifiant IdRef, il convient de recourir à plusieurs services.
 
-Les deux services sont "Abes" : 
+Deux services sont "Abes" : 
 1) API "references" d'IdRef : https://www.idref.fr/services/references/PPN
             https://documentation.abes.fr/aideidrefdeveloppeur/index.html#MicroWebReferences
             l'API "references" délivre tout autrement dit il n'est pas possible pour le moment de filtrer tel ou tel gisement
 2) data.idref : https://data.idref.fr/sparql
 
-Ces services délivrent des alignements URI d'IdRef / URI de documents,documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, afin de récupérer la finesse de signalement souhaitée.
+Le troisième est externe :
+3) un tiers service réside dans Scanr : https://cluster-production.elasticsearch.dataesr.ovh/scanr-persons/_search?q=id:idref060279249
+
+
+Ces services "Abes" délivrent des alignements URI d'IdRef / URI de documents,documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, afin de récupérer la finesse de signalement souhaitée.
 Les deux services Abes ne sont que des aiguillages. Ce-dessous, voici les manières d'interroger les différents corpus.
+
+Sources restant à documenter : 
+Calames, Frantiq, ORCID, UnivOAK, Toulouse Capitole, Agritrop, SLSP, Renouvaud, Rero+, Uliège, Scanr.
 
 
 ERUDIT 
@@ -25,9 +32,13 @@ Pour aller d'un idref de Personne aux métadonnées d'un document OpenEdition, e
 4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : http://oai.openedition.org/?verb=GetRecord&identifier=oai:revues.org:conflits/756&metadataPrefix=qdc (le qdc est du dc (dublin core) qualifié donc un peu plus riche)
 
 CAIRN : 
-Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas actif.
-Via le flux RSS, le chemin est tronqué en raison de l'absence (momentanée) de l'identifier de chaque document.
+Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas encore actif.
+Un développement côté Cairn est en cours.
+Via le flux RSS, le chemin est tronqué en raison de l'absence (momentanée) de l' "identifier" de chaque document.
 Un développement côté Cairn ne pas devrait pas tarder.
+Il faudra voir quelle voie sort la première, permettant d'assurer fraicheur et complétude des alignements, voire des métadonnées.
+La voie par Scienceplus apparait a priori comme la plus efficace et performante.
+D'ici là, la voie flux RSS serait la suivante :
 
 1.	le point de départ est un idref 027182258
 2.	on interroge le flux rss https://www.cairn.info/rss/auteur/027182258?key=idref
