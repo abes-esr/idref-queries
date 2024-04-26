@@ -14,7 +14,9 @@ Ces services "Abes" délivrent des alignements URI d'IdRef / URI de documents,do
 Les deux services Abes ne sont que des aiguillages. Ce-dessous, voici les manières d'interroger les différents corpus.
 
 Sources restant à documenter : 
-Calames, Frantiq, ORCID, UnivOAK, Toulouse Capitole, Agritrop, SLSP, Renouvaud, Rero+, Uliège, Scanr.
+Calames : via data.idref
+ORCID : via idrefplus
+Frantiq, UnivOAK, Toulouse Capitole, Agritrop, SLSP, Renouvaud, Rero+, Uliège, Scanr.
 
 
 ERUDIT 
