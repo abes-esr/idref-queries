@@ -14,7 +14,7 @@ where {
 FILTER(regex(?idref,'http://www.idref.fr'))
 }
 
--- POur compter le nombre d'alignements à un idref
+-- Pour compter le nombre d'alignements à un idref
 select count(?p) from <http://data.idref.fr/calames>
 where {
 ?cal dcterms:created ?date.
