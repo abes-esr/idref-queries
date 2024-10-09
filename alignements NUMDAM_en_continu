@@ -1,0 +1,98 @@
+select * where {
+graph <http://data.idref.fr/numdam>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+select count(*) where {
+graph <http://data.idref.fr/numdam>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+-- nombre de documents distincts
+select 
+COUNT(DISTINCT(?doc))
+where {
+graph <http://data.idref.fr/numdam>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+-- nombre de personnes distinctes
+select 
+COUNT(DISTINCT(?idref))
+where {
+graph <http://data.idref.fr/numdam>
+{?doc dcterms:bibliographicCitation ?citation.
+?doc ?role ?idref.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+}}
+
+
+-- les orcid alignés à IdRef pour les dépôts Numdam
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?orcid ?idref ?doc
+WHERE {
+  { 
+    SELECT ?idref ?doc
+    FROM <http://data.idref.fr/numdam>
+    WHERE {
+      ?doc dcterms:bibliographicCitation ?citation.
+      FILTER(STRSTARTS(STR(?doc), "http://www.numdam"))
+      ?doc ?role ?idref.
+      FILTER(STRSTARTS(STR(?role), "http://id.loc.gov/vocabulary/relators"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
+  {
+    SELECT ?orcid ?idref
+    FROM <http://data.idref.fr/orcid_idref>
+    WHERE {
+      ?orcid owl:sameAs ?idref.
+      FILTER(STRSTARTS(STR(?orcid), "http://orcid.org"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
+}
+
+-- les alignements orcid-idref uniques 
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT  DISTINCT(?idref), ?orcid 
+WHERE {
+  { 
+    SELECT ?doc ?idref 
+    FROM <http://data.idref.fr/numdam>
+    WHERE {
+      ?doc dcterms:bibliographicCitation ?citation.
+      FILTER(STRSTARTS(STR(?doc), "http://www.numdam"))
+      ?doc ?role ?idref.
+      FILTER(STRSTARTS(STR(?role), "http://id.loc.gov/vocabulary/relators"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
+  {
+    SELECT ?orcid ?idref
+    FROM <http://data.idref.fr/orcid_idref>
+    WHERE {
+      ?orcid owl:sameAs ?idref.
+      FILTER(STRSTARTS(STR(?orcid), "http://orcid.org"))
+      FILTER(STRSTARTS(STR(?idref), "http://www.idref.fr"))
+    }
+  }
+}
