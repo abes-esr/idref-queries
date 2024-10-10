@@ -125,7 +125,12 @@ Pour aller d'un idref de Personne aux métadonnées d'un document FOLIA, en 4 é
 3.	qui donne en résultat des URI, exemple https://sonar.ch/global/documents/328000#id 
 4.	on passe chaque URI à l'entrepôt OAI-PMH FOLIA : https://folia.unifr.ch/oai2d?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:sonar.ch:328000
 
-
+NUMDAM 
+Pour aller d'un idref de Personne aux métadonnées d'un document NUMDAM, en 4 étapes :
+1.	idref.fr : soit l'idref  
+2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=%23NUMDAM%0D%0ASELECT+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F052473104%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28STRSTARTS%28STR%28%3Furi%29%2C+%27http%3A%2F%2Fwww.numdam%27+%29%29%7D%0D%0AORDER+by+%3FdatePub&format=application%2Frdf%2Bxml&timeout=0&debug=on&run=+Run+Query+
+3.	qui donne en résultat des URI, exemple http://www.numdam.org/articles/10.1007/s10240-013-0060-3#id
+4.	on passe chaque URI à l'entrepôt OAI-PMH NUMDAM : http://www.numdam.org/oai/?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:numdam.org:MSH_1973__43__5_0
 
 
 
