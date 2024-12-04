@@ -1,0 +1,28 @@
+SELECT ?nakala ?idref ?nom ?citation
+WHERE {
+  {
+    SELECT ?nakala ?idref ?citation
+    FROM <http://data.idref.fr/nakala> 
+    WHERE {
+      ?nakala marcrel:aut ?idref.
+      ?nakala dcterms:bibliographicCitation ?citation.
+    }
+  }
+  OPTIONAL {
+    ?idref foaf:name ?nom.
+  }
+}
+LIMIT 1000
+
+
+
+
+select ?nakala ?idref ?nom ?citation
+where 
+{
+?nakala marcrel:aut ?idref.
+?idref foaf:name ?nom.
+?nakala dcterms:bibliographicCitation ?citation.
+FILTER (regex(STR(?nakala),'https://nakala'))
+}
+LIMIT 1000
