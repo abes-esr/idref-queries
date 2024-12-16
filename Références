@@ -34,22 +34,17 @@ Pour aller d'un idref de Personne aux métadonnées d'un document OpenEdition, e
 4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : http://oai.openedition.org/?verb=GetRecord&identifier=oai:revues.org:conflits/756&metadataPrefix=qdc (le qdc est du dc (dublin core) qualifié donc un peu plus riche)
 
 CAIRN : 
-Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas encore actif.
-Un développement côté Cairn est en cours.
-Via le flux RSS, le chemin est tronqué en raison de l'absence (momentanée) de l' "identifier" de chaque document.
-Un développement côté Cairn ne pas devrait pas tarder.
-Il faudra voir quelle voie sort la première, permettant d'assurer fraicheur et complétude des alignements, voire des métadonnées.
-La voie par Scienceplus apparait a priori comme la plus efficace et performante.
-D'ici là, la voie flux RSS serait la suivante :
+(Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas encore actif. Un développement côté Cairn est en cours.)
 
-1.	le point de départ est un idref 027182258
-2.	on interroge le flux rss https://www.cairn.info/rss/auteur/027182258?key=idref
+Pour aller d'un idref de Personne aux métadonnées d'un document Cairn, en 4 étapes :
+1.	idref.fr : soit l'idref 027182258
+2.	on interroge le flux rss  https://shs.cairn.info/auteur/idref/027182258/rss
 3.	qui donne en résultat un ou des items :
             <item>
-            <title>Les bons ressentiments. Essai sur le malaise post-colonial</title>
-balise en instance d'ajout par Cairn =>    <identifier>AFCO_256_0005</identifier>
-            <link>https://www.cairn.info/revue-afrique-contemporaine-2023-2-page-283.htm</link>
-            <description>Véron Jean-Bernard, « Les bons ressentiments. Essai sur le malaise post-colonial. Éditions Riveneuve, coll. « Pépites », mars 2023. », Afrique contemporaine, 2023/2 (N° 276), p. 283-284.</description>
+                        <title>Les bons ressentiments. Essai sur le malaise post-colonial</title>
+                                    <identifier>AFCO_256_0005</identifier>
+                                    <link>https://www.cairn.info/revue-afrique-contemporaine-2023-2-page-283.htm</link>
+                        <description>Véron Jean-Bernard, « Les bons ressentiments. Essai sur le malaise post-colonial. Éditions Riveneuve, coll. « Pépites », mars 2023. », Afrique contemporaine, 2023/2 (N° 276), p. 283-284.</description>
             </item>
 4.	on  passe chaque IDENTIFIER à l'entrepôt OAI-PMH Cairn : https://oai.cairn.info/oai.php?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:cairn.info:AFCO_256_0005 pour obtenir les métadonnées de chaque document.
 
