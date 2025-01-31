@@ -28,10 +28,26 @@ Pour aller d'un idref de Personne aux métadonnées d'un document Erudit, en 4 �
 
 OPENEDITION
 Pour aller d'un idref de Personne aux métadonnées d'un document OpenEdition, en 4 étapes :
-1.	idref.fr : soit l'idref 031999182 
+1.	idref.fr : soit l'idref 031999182
 2.	on requête data.idref : https://data.idref.fr/sparql?default-graph-uri=&query=select+DISTINCT+%3Furi%2C+%3Fcitation%2C+%3FdatePub%0D%0Awhere+%7B%0D%0A%3Furi+marcrel%3Aaut+%3Chttp%3A%2F%2Fwww.idref.fr%2F031999182%2Fid%3E.%0D%0A%3Furi+dcterms%3AbibliographicCitation+%3Fcitation.%0D%0AOPTIONAL+%7B%3Furi+dc%3Adate+%3FdatePub.%7D%0D%0AFILTER+%28regex%28%3Furi%2C+%27openedition%27+%29%29%0D%0A%0D%0A%7D%0D%0AORDER+by+%3FdatePub&format=application%2Fsparql-results%2Bjson&timeout=0&debug=on&run=+Run+Query+ 
 3.	qui donne en résultat des URI, exemple http://journals.openedition.org/conflits/756#id 
 4.	on passe chaque URI à l'entrepôt OAI-PMH OpenEdition : http://oai.openedition.org/?verb=GetRecord&identifier=oai:revues.org:conflits/756&metadataPrefix=qdc (le qdc est du dc (dublin core) qualifié donc un peu plus riche)
+
+Variante via le RSS et l'OAI-PMH d'OpenEdition : 
+1.	idref.fr : soit l'idref 031999182
+2.          on interroge le flux rss https://metadata.openedition.org/person/idref/031999182
+3.	qui donne en résultat un ou des items :
+            <item>
+                        <pubDate>Tue, 11 Oct 2022 02:00:00 +0200</pubDate>
+                        <title>Note sur un syndicat nationaliste hindou : le travail et les travailleurs dans l’idéologie et les stratégies du Bharatiya Mazdoor Sangh</title>
+                        <link>https://books.openedition.org/editionsehess/25518</link>
+                        <guid>https://hdl.handle.net/20.500.13089/2dof</guid>
+                        <description>Jaffrelot, C. (1992). Note sur un syndicat nationaliste hindou : le travail et les travailleurs dans l’idéologie et les stratégies du Bharatiya Mazdoor Sangh. In G. Heuzé (éd.), Travailler en Inde (1‑). Éditions de l’École des hautes études en sciences sociales. https://doi.org/10.4000/books.editionsehess.25518</description>
+            </item>
+4.	on  passe la valeur de la balise <guid> par à l'entrepôt OAI-PMH d'OpenEdition : 
+            https://metadata.openedition.org/oai?verb=GetRecord&identifier=20.500.13089/2dof&metadataPrefix=oai_dc
+            pour obtenir les métadonnées de chaque document.
+
 
 CAIRN : 
 (Via Scienceplus la couverture des alignements est moindre que dans la base Cairn car le flux via l'OAI-PMH n'est pas encore actif. Un développement côté Cairn est en cours.)
