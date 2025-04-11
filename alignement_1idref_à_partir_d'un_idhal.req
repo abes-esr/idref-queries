@@ -1,2 +1,2 @@
 SELECT ?idref
-WHERE {?idref owl:sameAs <https://data.archives-ouvertes.fr/author/dacos#foaf:Person>.}
+WHERE {?idref owl:sameAs <https://data.hal.science.fr/author/dacos#foaf:Person>.}
