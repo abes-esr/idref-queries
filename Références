@@ -7,7 +7,9 @@ Deux services sont "Abes" :
 2) data.idref : https://data.idref.fr/sparql
 
 Le troisième est externe :
-3) un tiers service réside dans Scanr : https://cluster-production.elasticsearch.dataesr.ovh/scanr-persons/_search?q=id:idref060279249
+3) un tiers service réside dans Scanr : 
+            API : https://scanr.enseignementsup-recherche.gouv.fr/api/scanr-persons/_search?q=id:idref060279249
+            Site web : https://scanr.enseignementsup-recherche.gouv.fr/search/authors?q=id%3Aidref060279249
 
 
 Ces services "Abes" délivrent des alignements URI d'IdRef / URI de documents,documents émanant de différents gisements documentaires qu'il s'agit alors d'interroger un à un, afin de récupérer la finesse de signalement souhaitée.
