@@ -14,7 +14,7 @@ WHERE {
   )
 }
 
-On trouve donc des URL qui ne devraient pas être : 
+On trouve donc des URL qui ne devraient pas être.
 TODO : les corriger.
 
 
@@ -36,20 +36,19 @@ WHERE {
 LIMIT 100                                 
 
 
-Voici une troisième requête qui porte sur les identifiants de documents :
-Ici la REGEX est la même que pour la requête 1 : ce qui permet de mettre en évidence des pbs !                        
+Voici une troisième requête qui exhibe une petit millier de doc HAL dont l'uri ne contient pas un #id.
+TODO : les corriger.
 
-SELECT DISTINCT ?domain
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT count(DISTINCT ?doc)
 WHERE {
-  ?doc dcterms:bibliographicCitation ?o.
- # Extraire le domaine du lien (entre http(s):// et le premier / suivant)
-  BIND(
-    REPLACE(
-      STR(?doc ),
-      "^(?:https?://)([^/]+)(?:/.*)?$",
-      "$1"
-    ) AS ?domain
+  ?doc dcterms:bibliographicCitation ?o .
+  
+  FILTER(
+    REGEX(STR(?doc), "^https://hal\\.archives-ouvertes\\.fr/")
+    && !REGEX(STR(?doc), "#id$")
   )
 }
-LIMIT 100   
+LIMIT 100
                                  
