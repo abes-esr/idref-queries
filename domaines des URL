@@ -1,0 +1,55 @@
+Voici une première requête qui porte sur les identifiants d'entités :
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT ?domain
+WHERE {
+  ?s owl:sameAs ?id .
+  # Extraire le domaine du lien (entre http(s):// et le premier / suivant)
+  BIND(
+    REPLACE(
+      STR(?id),
+      "^(?:https?://)([^/]+)(?:/.*)?$",
+      "$1"
+    ) AS ?domain
+  )
+}
+
+On trouve donc des URL qui ne devraient pas être : 
+TODO : les corriger.
+
+
+Voici une seconde requête qui porte sur les identifiants de documents : donne une liste de 17 URL de gisements documentaires. C'ets OK !
+ATTENTION la REGEX est un peu différente !!
+                                 
+SELECT DISTINCT ?domain
+WHERE {
+  ?doc dcterms:bibliographicCitation ?o.
+ # Extraire le domaine du lien (entre http(s):// et le premier / suivant)
+  BIND(
+    REPLACE(
+      STR(?doc ),
+      "^(?:https?)([^/]+)(?:/.*)?$",
+      "$1"
+    ) AS ?domain
+  )
+}
+LIMIT 100                                 
+
+
+Voici une troisième requête qui porte sur les identifiants de documents :
+Ici la REGEX est la même que pour la requête 1 : ce qui permet de mettre en évidence des pbs !                        
+
+SELECT DISTINCT ?domain
+WHERE {
+  ?doc dcterms:bibliographicCitation ?o.
+ # Extraire le domaine du lien (entre http(s):// et le premier / suivant)
+  BIND(
+    REPLACE(
+      STR(?doc ),
+      "^(?:https?://)([^/]+)(?:/.*)?$",
+      "$1"
+    ) AS ?domain
+  )
+}
+LIMIT 100   
+                                 
