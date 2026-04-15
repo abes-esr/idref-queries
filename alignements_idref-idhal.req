@@ -1,5 +1,5 @@
 SELECT ?idref ?idhal
 WHERE {?idref owl:sameAs ?idhal.
 ?idref a foaf:Person.
-FILTER (STRSTARTS(STR(?idhal),'https://data.hal.science.fr/author'))}
+FILTER (STRSTARTS(STR(?idhal),'https://data.hal.science/author'))}
 LIMIT 10
