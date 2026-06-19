@@ -29,6 +29,21 @@ FILTER(regex(str(?idref), "http://www.idref.fr"))
 }}
 
 
+-- les personnes, et leur appellation, référencées dans les documents
+select 
+?doc ?idref ?nom ?titre ?datePub ?doi
+where 
+{?doc dcterms:title ?titre.
+?doc ?role ?idref.
+?idref foaf:name ?nom.
+OPTIONAL{?doc dc:date ?datePub.}
+OPTIONAL{?doc bibo:doi ?doi.}
+FILTER(regex(str(?idref), "http://www.idref.fr"))
+FILTER(regex(str(?doc),"https://orbi.uliege.be/handle/"))
+}
+LIMIT 100
+
+
 -- nombre de personnes distinctes
 select 
 COUNT(DISTINCT(?idref))
