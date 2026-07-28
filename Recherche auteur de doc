@@ -1,0 +1,24 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX marcrel: <http://id.loc.gov/vocabulary/relators/>
+ 
+SELECT distinct ?idref
+WHERE  
+{ ?idref foaf:name 'Marc Abélès'. } 
+
+-- Avec un titre de document 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX marcrel: <http://id.loc.gov/vocabulary/relators/>
+ 
+SELECT distinct ?idref
+WHERE  
+{ ?idref foaf:name 'Alexis Nuselovici'. 
+  ?doc marcrel:aut ?idref.
+  ?doc dcterms:bibliographicCitation ?titre.
+  ?titre bif:contains '"Derrida" AND "dissémination" AND "œuvre"'.
+ } 
