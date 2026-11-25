@@ -49,6 +49,14 @@ HAVING (COUNT(DISTINCT ?doi) > 1)
 LIMIT 10
 
 
+-- recherche d'URI HAL type structure ou mail
+select * 
+WHERE {
+?s owl:sameAs ?o.
+#FILTER(REGEX(STR(?o),'data.archives-ouvertes.fr/structure'))
+FILTER(REGEX(STR(?o),'namespace/person'))
+}
+
 
 
 
