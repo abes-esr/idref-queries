@@ -83,25 +83,25 @@ liste des graphes et nombre de triplets au 05/03/2024 :
  http://data.idref.fr/hal/bdxmontaigne	 82616
  http://data.idref.fr/hal/rennes1_delta	 78952
  http://data.idref.fr/hal/cergy	 78309
- http://data.idref.fr/hal/perpignan	 73503
- http://data.idref.fr/hal/brgm	 71609
- http://data.idref.fr/hal/saclayshs	 70730
- http://data.idref.fr/hal/uphf	 68416
- http://data.idref.fr/hal/ehess_delta	 56542
- http://data.idref.fr/hal/reunion	 49980
- http://data.idref.fr/hal/halparis1_deltaTEST	 46329
- http://data.idref.fr/hal/halparis1_delta	 46325
+ http://data.idref.fr/hal/perpignan	 73503  
+ http://data.idref.fr/hal/brgm	 71609   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/saclayshs	 70730   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/uphf	 68416   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/ehess_delta	 56542  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/reunion	 49980    migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/halparis1_deltaTEST	 46329 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/halparis1_delta	 46325  migré dans graphe hal 11-2026
  http://data.idref.fr/aliregulier/light	 37275
- http://data.idref.fr/hal/irsn	 36483
- http://data.idref.fr/hal/upec_delta	 33984
+ http://data.idref.fr/hal/irsn	 36483         migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/upec_delta	 33984   migré dans graphe hal 11-2026
  http://data.idref.fr/openedition/journals	 30436
- http://data.idref.fr/hal/inalco	 30278
- http://data.idref.fr/hal/ehess	 27694
- http://data.idref.fr/hal/rennes2_delta	 26490
+ http://data.idref.fr/hal/inalco	 30278     migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/ehess	 27694      migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/rennes2_delta	 26490  migré dans graphe hal 11-2026
  http://data.idref.fr/serval	 11903
- http://data.idref.fr/hal/enac	 10896
+ http://data.idref.fr/hal/enac	 10896  migré dans graphe hal 11-2026
  http://data.idref.fr/aliregulier	 10002
  http://data.idref.fr/erudit	 9951
- http://data.idref.fr/hal/emlyon	 7152
+ http://data.idref.fr/hal/emlyon	 7152 migré dans graphe hal 11-2026
  http://data.idref.fr/orbi	 6779
- http://data.idref.fr/hal/gallia	 6034
+ http://data.idref.fr/hal/gallia	 6034 migré dans graphe hal 11-2026
