@@ -25,65 +25,65 @@ ORDER BY DESC(?eff) ;
 
 
 liste des graphes et nombre de triplets au 05/03/2024 :
- http://data.idref.fr/hal/aixmarseillefiltre	 698876
+ http://data.idref.fr/hal/aixmarseillefiltre	 698876 migré dans graphe hal 11-2026
  http://data.idref.fr/ejournals/cairn	 678644
- http://data.idref.fr/hal/montpellier	 584675
- http://data.idref.fr/hal/grenoble1filtre	 563292
- http://data.idref.fr/hal/normandie	 541122
- http://data.idref.fr/hal/sorbonnefrom2018	 537808
- http://data.idref.fr/hal/rennes1	 485023
- http://data.idref.fr/hal/lorraine	 478335
+ http://data.idref.fr/hal/montpellier	 584675  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/grenoble1filtre	 563292  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/normandie	 541122  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/sorbonnefrom2018	 537808   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/rennes1	 485023 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/lorraine	 478335  migré dans graphe hal 11-2026
  http://data.idref.fr/persee/articles	 475086
- http://data.idref.fr/hal/lyon1from2018	 468743
- http://data.idref.fr/hal/toulouse3	 452453
+ http://data.idref.fr/hal/lyon1from2018	 468743 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/toulouse3	 452453 migré dans graphe hal 11-2026
  http://data.idref.fr/ejournals/springer	 412825
- http://data.idref.fr/hal/nantes	 404019
- http://data.idref.fr/hal/lyon1to2018	 401662
+ http://data.idref.fr/hal/nantes	 404019   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/lyon1to2018	 401662   migré dans graphe hal 11-2026
  http://data.idref.fr/ejournals/jats/oup	 400370
- http://data.idref.fr/hal/savoie	 390968
- http://data.idref.fr/hal/anr	 387216
- http://data.idref.fr/hal/inrae	 368753
+ http://data.idref.fr/hal/savoie	 390968  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/anr	 387216 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/inrae	 368753  migré dans graphe hal 11-2026
  http://data.idref.fr/openedition/journals/retro	 364360
  http://data.idref.fr/ejournals/jats/acs	 340521
- http://data.idref.fr/hal/bourgogne	 330142
- http://data.idref.fr/hal/ird	 303435
- http://data.idref.fr/hal/grenoble2filtre	 302339
- http://data.idref.fr/hal/agroparistech	 274386
- http://data.idref.fr/hal/paris1	 267697
- http://data.idref.fr/hal/insarennes	 231235
- http://data.idref.fr/hal/sorbonneto2018	 231158
- http://data.idref.fr/hal/brest	 229148
+ http://data.idref.fr/hal/bourgogne	 330142 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/ird	 303435 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/grenoble2filtre	 302339 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/agroparistech	 274386 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/paris1	 267697  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/insarennes	 231235 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/sorbonneto2018	 231158  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/brest	 229148   migré dans graphe hal 11-2026
  http://data.idref.fr/aliregulier/test1	 219767
- http://data.idref.fr/hal/toulouse2	 201770
- http://data.idref.fr/hal/upec	 192056
- http://data.idref.fr/hal/franchecomte	 186375
+ http://data.idref.fr/hal/toulouse2	 201770   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/upec	 192056    migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/franchecomte	 186375   migré dans graphe hal 11-2026
  http://data.idref.fr/aliregulier/test2	 183706
- http://data.idref.fr/hal/enpc	 181042
+ http://data.idref.fr/hal/enpc	 181042  migré dans graphe hal 11-2026
  http://data.idref.fr/openedition/journals/scanr	 171934
- http://data.idref.fr/hal/enslyon	 171024
+ http://data.idref.fr/hal/enslyon	 171024  migré dans graphe hal 11-2026
  http://data.idref.fr/ejournals/jats/cup	 157968
- http://data.idref.fr/hal/limoges	 146559
- http://data.idref.fr/hal/poitiers	 145436
- http://data.idref.fr/hal/insatoulouse	 141865
+ http://data.idref.fr/hal/limoges	 146559   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/poitiers	 145436   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/insatoulouse	 141865  migré dans graphe hal 11-2026
  http://data.idref.fr/ejournals/jats/bmj	 141774
- http://data.idref.fr/hal/nanterre	 136342
- http://data.idref.fr/hal/orleans	 134927
+ http://data.idref.fr/hal/nanterre	 136342 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/orleans	 134927  migré dans graphe hal 11-2026
  http://data.idref.fr/orcid_idref	 127986
  http://data.idref.fr/hal	 127764
- http://data.idref.fr/hal/rennes2	 127528
- http://data.idref.fr/hal/spoparis	 124059
- http://data.idref.fr/hal/toulousecapitole	 119645
- http://data.idref.fr/hal/pau	 116128
+ http://data.idref.fr/hal/rennes2	 127528   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/spoparis	 124059  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/toulousecapitole	 119645 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/pau	 116128 migré dans graphe hal 11-2026
  http://data.idref.fr/calames	 107341
- http://data.idref.fr/hal/reims	 100432
- http://data.idref.fr/hal/imtatlantique	 95946
- http://data.idref.fr/hal/guyane	 93507
- http://data.idref.fr/hal/lyon3	 90573
+ http://data.idref.fr/hal/reims	 100432 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/imtatlantique	 95946 migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/guyane	 93507  migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/lyon3	 90573    migré dans graphe hal 11-2026
  http://data.idref.fr/openedition/chapters/scanr	 90260
- http://data.idref.fr/hal/bdxmontaigne	 82616
- http://data.idref.fr/hal/rennes1_delta	 78952
- http://data.idref.fr/hal/cergy	 78309
- http://data.idref.fr/hal/perpignan	 73503  
+ http://data.idref.fr/hal/bdxmontaigne	 82616   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/rennes1_delta	 78952   migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/cergy	 78309       migré dans graphe hal 11-2026
+ http://data.idref.fr/hal/perpignan	 73503   migré dans graphe hal 11-2026
  http://data.idref.fr/hal/brgm	 71609   migré dans graphe hal 11-2026
  http://data.idref.fr/hal/saclayshs	 70730   migré dans graphe hal 11-2026
  http://data.idref.fr/hal/uphf	 68416   migré dans graphe hal 11-2026
