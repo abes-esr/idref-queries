@@ -7,6 +7,7 @@ SELECT ?doc (GROUP_CONCAT(DISTINCT ?date ; SEPARATOR="#µ#") AS ?dates)
 WHERE {
 GRAPH ?g {
 ?doc dc:date ?date .
+#FILTER(!REGEX(STR(?doc),'nakala'))
 }}
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?date) > 1) ;
