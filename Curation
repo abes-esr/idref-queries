@@ -57,6 +57,12 @@ WHERE {
 FILTER(REGEX(STR(?o),'namespace/person'))
 }
 
+select * 
+WHERE {
+?s marcrel:aut ?o.
+FILTER(!REGEX(STR(?o),'idref'))
+}
+
 
 
 
