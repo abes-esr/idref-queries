@@ -12,6 +12,9 @@ GRAPH ?g {
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?date) > 1) ;
 
+-- au 25/11/2026 :  5796 résultats mais que du nakala, pour cause de date de publi papier vs. date de publi élec
+-- ex : https://nakala.fr/10.34847/nkl.23fdcn6m#id
+
 -- recherche doublons de citation
 log enable (3,1) ;
 SPARQL SELECT ?doc (GROUP_CONCAT(DISTINCT ?citation; SEPARATOR="#µ#") AS ?citation)
@@ -22,3 +25,15 @@ GRAPH ?g {
 }
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?citation) > 1) ;
+
+
+-- recherche doublons de doi et de trucs qui ne sont pas des DOI
+log enable (3,1) ;
+SPARQL SELECT ?doc (GROUP_CONCAT(DISTINCT ?doi; SEPARATOR="#µ#") AS ?doi)
+WHERE {
+GRAPH ?g {
+?doc bibo:doi ?doi.
+}
+}
+GROUP BY ?doc
+HAVING (COUNT(DISTINCT ?doi) > 1);
