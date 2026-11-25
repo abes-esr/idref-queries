@@ -7,8 +7,7 @@ SELECT ?doc (GROUP_CONCAT(DISTINCT ?date ; SEPARATOR="#µ#") AS ?dates)
 WHERE {
 GRAPH ?g {
 ?doc dc:date ?date .
-}
-}
+}}
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?date) > 1) ;
 
@@ -21,8 +20,7 @@ SPARQL SELECT ?doc (GROUP_CONCAT(DISTINCT ?citation; SEPARATOR="#µ#") AS ?citat
 WHERE {
 GRAPH ?g {
 ?doc dcterms:bibliographicCitation ?citation.
-}
-}
+}}
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?citation) > 1) ;
 
@@ -33,7 +31,29 @@ SPARQL SELECT ?doc (GROUP_CONCAT(DISTINCT ?doi; SEPARATOR="#µ#") AS ?doi)
 WHERE {
 GRAPH ?g {
 ?doc bibo:doi ?doi.
-}
-}
+FILTER(!REGEX(STR(?doi),'10.'))
+}}
 GROUP BY ?doc
 HAVING (COUNT(DISTINCT ?doi) > 1);
+
+
+SELECT ?doc (GROUP_CONCAT(DISTINCT ?doi; SEPARATOR="#µ#") AS ?doi)
+WHERE {
+GRAPH ?g {
+?doc bibo:doi ?doi.
+FILTER(REGEX(STR(?g),'journals'))
+}}
+GROUP BY ?doc
+HAVING (COUNT(DISTINCT ?doi) > 1)
+LIMIT 10
+
+
+
+
+
+
+
+
+
+
+
