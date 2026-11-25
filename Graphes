@@ -3,6 +3,7 @@ log enable (3,1) ;
 SPARQL SELECT ?g (COUNT(*) AS ?eff) 
 WHERE {
   GRAPH ?g { ?s ?p ?o }
+  FILTER(!STRSTARTS(STR(?g), "http://www.openlinksw.com/schemas/virtrdf#"))
   FILTER(!regex(?g, "sudoc"))
   FILTER(!regex(?g, "idref"))
 }
